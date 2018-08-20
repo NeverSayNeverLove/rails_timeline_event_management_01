@@ -32,13 +32,13 @@ class EventsManagementsController < ApplicationController
     inv_event = current_user.user_events.select{|e| e.permission.zero?}.map do |ev|
       current_user.events.find_by(id: ev.event_id)
     end
-    @invited_events = Kaminari.paginate_array(inv_event).page(params[:page]).per Settings.paginate.per_page
+    @invited_events = Kaminari.paginate_array(inv_event.sort_by{|t| t[:time_from]}).page(params[:page]).per Settings.paginate.per_page
   end
 
   def get_created_events
     cre_event = current_user.user_events.select{|e| e.permission == 1}.map do |ev|
       current_user.events.find_by(id: ev.event_id)
     end
-    @created_events = Kaminari.paginate_array(cre_event).page(params[:page]).per Settings.paginate.per_page
+    @created_events = Kaminari.paginate_array(cre_event.sort_by{|t| t[:time_from]}).page(params[:page]).per Settings.paginate.per_page
   end
 end

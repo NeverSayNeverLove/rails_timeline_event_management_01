@@ -164,6 +164,7 @@ en:
       search: "Search"
     result:
       no_info: "No Imformation"
+      action: "Action"
   controller:
     not_cmt: "Not comment"
   users:

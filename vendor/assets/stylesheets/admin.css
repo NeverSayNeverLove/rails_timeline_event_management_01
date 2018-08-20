@@ -96,6 +96,10 @@ body {
     text-shadow:0 0 1px #bbbbbb;
 }
 
+.form_invite {
+    margin-top: 70px;
+}
+
 .well,.panel {
     border-color:#d2d2d2;
     box-shadow:0 1px 0 #cfcfcf;

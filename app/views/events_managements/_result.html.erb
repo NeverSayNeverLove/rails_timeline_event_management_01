@@ -6,6 +6,7 @@
         <th class="fix"><%= t ".description" %></th>
         <th class="fix"><%= t ".place" %></th>
         <th class="fix"><%= t ".from_to" %></th>
+        <th class="fix"><%= t ".action" %></th>
       </tr>
     </thead>
     <% @result.each do |event| %>
@@ -17,6 +18,14 @@
             <%= event.time_from.strftime("%d/%m/%y %H:%M") %>
             <%= t ".dash" %>
             <%= event.time_to.strftime("%d/%m/%y %H:%M") %>
+          </td>
+          <td>
+            <p class="title">
+              <% if @current_user.user_events.find_by(event_id: event.id).permission == 1 %> Created
+              <% else %>
+                Invited
+              <% end %>
+            </p>
           </td>
         </tr>
       </tbody>

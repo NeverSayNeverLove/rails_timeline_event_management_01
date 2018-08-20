@@ -41,13 +41,13 @@ user4 = User.create!(email: "buiquangdai@gmail.com",
   end
 
 event1 = Event.create!(place: "Ha Noi", time_from: Time.now, time_to: Time.now + 100,
-  remind: true, importance: "normal", description: "day la dai tieng noi VN")
+  remind: true, importance: "normal", description: "ok")
 Notification.create!(notify_before: Time.now, event_id: event1.id)
 UserEvent.create!(event_id: event1.id, user_id: user1.id)
 UserEvent.create!(event_id: event1.id, user_id: user2.id, permission:  0)
 
 event2 = Event.create!(place: "Hai Phong", time_from: Time.now, time_to: Time.now + 100,
-  remind: true, importance: "normal", description: "Phat thanh tu ha noi")
+  remind: true, importance: "normal", description: "xong")
 Notification.create!(notify_before: Time.now, event_id: event2.id)
 UserEvent.create!(event_id: event2.id, user_id: user1.id)
 UserEvent.create!(event_id: event2.id, user_id: user2.id, permission:  0)
